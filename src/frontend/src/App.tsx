@@ -1,9 +1,10 @@
 import { APP_VERSION } from '@shared/constants';
+import { Button } from './components/ui/button';
 
 function App(): JSX.Element {
     return (
-        <div className="container">
-            <h1>{APP_VERSION}</h1>
+        <div className="h-screen w-screen flex items-center justify-center">
+            <Button>{APP_VERSION}</Button>
         </div>
     );
 }

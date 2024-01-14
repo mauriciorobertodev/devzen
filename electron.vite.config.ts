@@ -31,6 +31,7 @@ export default defineConfig({
     renderer: {
         resolve: {
             alias: {
+                '@': resolve('src/frontend/src'),
                 '@frontend': resolve('src/frontend/src'),
                 '@shared': resolve('src/shared'),
                 '@/hooks': resolve('src/frontend/src/hooks'),
