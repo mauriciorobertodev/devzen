@@ -1,4 +1,7 @@
 singleQuote: true
-semi: false
+semi: true
 printWidth: 100
 trailingComma: none
+tabWidth: 4
+useTabs: false
+endOfLine: 'lf'
