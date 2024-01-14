@@ -1,9 +1,11 @@
-import Versions from './components/Versions'
-import icons from './assets/icons.svg'
+import icons from '@/assets/icons.svg'
+import Versions from '@/components/Versions'
+import { APP_VERSION } from '@shared/constants'
 
 function App(): JSX.Element {
   return (
     <div className="container">
+      <h1>VERSIOOOOOOOOOOOOOOON {APP_VERSION}</h1>
       <Versions></Versions>
 
       <svg className="hero-logo" viewBox="0 0 900 300">
