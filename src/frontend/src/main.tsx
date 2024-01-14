@@ -1,5 +1,5 @@
-import App from '@/App'
 import '@/assets/index.css'
+import App from '@frontend/App'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
