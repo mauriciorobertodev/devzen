@@ -31,12 +31,12 @@ export default defineConfig({
     renderer: {
         resolve: {
             alias: {
-                '@': resolve('src/frontend/src'),
-                '@frontend': resolve('src/frontend/src'),
+                '@': resolve('src/frontend'),
+                '@frontend': resolve('src/frontend'),
                 '@shared': resolve('src/shared'),
-                '@/hooks': resolve('src/frontend/src/hooks'),
-                '@/components': resolve('src/frontend/src/components'),
-                '@/assets': resolve('src/frontend/src/assets')
+                '@/hooks': resolve('src/frontend/hooks'),
+                '@/components': resolve('src/frontend/components'),
+                '@/assets': resolve('src/frontend/assets')
             }
         },
         plugins: [react()],
