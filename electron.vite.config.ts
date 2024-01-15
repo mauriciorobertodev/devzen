@@ -44,7 +44,8 @@ export default defineConfig({
         build: {
             rollupOptions: {
                 input: {
-                    index: resolve(__dirname, 'src/frontend/index.html')
+                    index: resolve(__dirname, 'src/frontend/index.html'),
+                    splash: resolve(__dirname, 'src/frontend/splash/index.html')
                 }
             }
         }

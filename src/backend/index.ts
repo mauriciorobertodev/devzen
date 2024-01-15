@@ -20,7 +20,23 @@ function createWindow(): void {
         }
     });
 
+    const splashWindow = new BrowserWindow({
+        width: 500,
+        height: 300,
+        transparent: false,
+        frame: false,
+        alwaysOnTop: true,
+        show: true,
+        center: true,
+        movable: false,
+        resizable: false,
+        roundedCorners: true
+    });
+
+    splashWindow.on('ready-to-show', () => splashWindow.show());
+
     mainWindow.on('ready-to-show', () => {
+        splashWindow.close();
         mainWindow.show();
     });
 
@@ -33,8 +49,10 @@ function createWindow(): void {
     // Load the remote URL for development or the local html file for production.
     if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
         mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']);
+        splashWindow.loadURL(process.env['ELECTRON_RENDERER_URL'] + '/splash/');
     } else {
         mainWindow.loadFile(join(__dirname, '../frontend/index.html'));
+        splashWindow.loadFile(join(__dirname, '../frontend/splash/index.html'));
     }
 }
 
