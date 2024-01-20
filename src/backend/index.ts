@@ -1,12 +1,12 @@
 import { electronApp, is, optimizer } from '@electron-toolkit/utils';
-import { APP_VERSION } from '@shared/constants';
 import { BrowserWindow, app, shell } from 'electron';
 import { join } from 'path';
 import icon from '../../resources/icon.png?asset';
-
-console.log(APP_VERSION);
+import { exposeStateVariableToRenderer } from './state/expose-to-frontend';
+import { StateVariable } from './state/variable-state';
 
 function createWindow(): void {
+    const token = new StateVariable<string | null>(null);
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         width: 900,
@@ -54,6 +54,14 @@ function createWindow(): void {
         mainWindow.loadFile(join(__dirname, '../frontend/index.html'));
         splashWindow.loadFile(join(__dirname, '../frontend/splash/index.html'));
     }
+
+    const { init, dispose } = exposeStateVariableToRenderer(mainWindow, 'token', token);
+
+    init();
+
+    mainWindow.on('closed', () => {
+        dispose();
+    });
 }
 
 // This method will be called when Electron has finished
